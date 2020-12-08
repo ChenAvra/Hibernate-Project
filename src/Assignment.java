@@ -91,8 +91,8 @@ public class Assignment {
         List<Mediaitems> answer =  null;
         try{
             Session session=HibernateUtil.currentSession();
-            String statement = "select * from MediaitemsEntity titles where ROWNUM<="+top_n+" order by mid desc";
-            Query query=session.createQuery(statement);
+            String statement = "select items from Mediaitems items order by mid desc";
+            Query query=session.createQuery(statement).setMaxResults(top_n);
             answer=query.list();
 
         }catch (Exception e){
