@@ -8,5 +8,19 @@
       <jdbc-driver>oracle.jdbc.OracleDriver</jdbc-driver>
       <jdbc-url>jdbc:oracle:thin:@ora1.ise.bgu.ac.il:1521:ORACLE</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="hibernate.cfg.xml/Hibernate" uuid="abb1051e-0432-4e22-a2f0-e54166df86ef">
+      <driver-ref>oracle</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>Hibernate
+
+C:/Users/iris dreizenshtok/Desktop/bsisi2/src/hibernate.cfg.xml</remarks>
+      <auto-commit>false</auto-commit>
+      <jdbc-driver>oracle.jdbc.OracleDriver</jdbc-driver>
+      <jdbc-url>jdbc:oracle:thin:@ora1.ise.bgu.ac.il:1521:ORACLE</jdbc-url>
+      <driver-properties>
+        <property name="v$session.program" value="DataGrip" />
+      </driver-properties>
+    </data-source>
   </component>
 </project>

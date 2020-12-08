@@ -23,9 +23,7 @@ public class Assignment {
         try{
             Session session= HibernateUtil.currentSession();
             String statement="select username from Users user WHERE user.username='"+username+"'";
-            System.out.println("statement:"+statement);
             Query query=session.createQuery(statement);
-            System.out.println("query:"+query.list().size());
             numOfUsers=query.list().size();
         }catch (Exception e){
             e.printStackTrace();
@@ -121,7 +119,7 @@ public class Assignment {
             HibernateUtil.closeSession();
         }
         if(answer.size()>0){
-            String answerToString=" "+answer.get(0).getUserid();
+            String answerToString=""+answer.get(0).getUserid();
             return answerToString;
         }
         else{
@@ -133,7 +131,7 @@ public class Assignment {
         List<Administrators> answer =  null;
         try{
             Session session=HibernateUtil.currentSession();
-            String statement = "select * from AdministratorsEntity allAdmins where allAdmins.username='"+username+"' and allAdmins.password='"+password+"'";
+            String statement = "from Administrators allAdmins where allAdmins.username='"+username+"' and allAdmins.password='"+password+"'";
             Query query=session.createQuery(statement);
             answer=query.list();
 
@@ -144,7 +142,7 @@ public class Assignment {
             HibernateUtil.closeSession();
         }
         if(answer.size()>0){
-            String answerToString=" "+answer.get(0).getAdminid();
+            String answerToString=""+answer.get(0).getAdminid();
             return answerToString;
         }
         else{
