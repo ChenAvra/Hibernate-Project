@@ -1,3 +1,4 @@
+import Entities.Mediaitems;
 import org.hibernate.HibernateException;
 import org.hibernate.Metamodel;
 import org.hibernate.query.Query;
@@ -7,6 +8,8 @@ import org.hibernate.cfg.Configuration;
 
 import javax.persistence.metamodel.EntityType;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 public class Main {
@@ -40,6 +43,14 @@ public class Main {
                     System.out.println("  " + o);
                 }
             }
+            Assignment assignment = new Assignment();
+            List<Mediaitems> l=assignment.getTopNItems(2);
+            for(int i=0; i<l.size(); i++){
+                System.out.println(l.get(i).getTitle());
+            }
+
+
+
         } finally {
             session.close();
         }
