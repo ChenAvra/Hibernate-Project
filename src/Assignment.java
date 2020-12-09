@@ -150,18 +150,22 @@ public class Assignment {
 
     public static void main(String[] args) {
         Assignment a=new Assignment();
-//        a.insertUser("chen","1234","chenavra","avra","19","November","1994");
+//        a.insertUser("iris","1234","chenavra","avra","19","November","1994");
 //        a.insertUser("sh","1234","chenavra","avra","19","November","1994");
 //        a.insertUser("sharom","1234","chenavra","avra","19","November","1994");
 
-        a.insertToHistory("0","8");
-//        a.getHistory("0") ;
-//        a.insertToLog("0");
-//        a.getNumberOfRegistredUsers(0);
-//        System.out.println(a.getUsers());
-//        System.out.println(getUser("0"));
-    }
+//        a.insertToHistory("5","1");
+//        a.insertToHistory("5","2");
+//        a.insertToHistory("5","3");
+//        a.getHistory("5") ;
+//        a.insertToLog("5");
+//        a.insertToLog("4");
 
+//        a.getNumberOfRegistredUsers(2);
+        System.out.println(a.getUsers());
+        System.out.println(getUser("5"));
+    }
+    //the function insert a new row to the History table with userid and mid
     public static void insertToHistory (String userid, String mid){
         History history=new History();
         List<Users>users=null;
@@ -230,7 +234,7 @@ public class Assignment {
         }
 
     }
-
+    //the function returns a Map with the  pairs of  <title,viewtime> of the userid and mid, sorted by VIEWTIME in ascending order.
     public static Map<String,Date> getHistory (String userid){
 
         Session session = null;
@@ -263,7 +267,7 @@ public class Assignment {
 
 
     }
-
+    //the function insert a new row to the LoginLog table with userid and current server time
     public static void insertToLog (String userid){
         Loginlog loginlog=new Loginlog();
         List<Users>users=null;
@@ -310,9 +314,9 @@ public class Assignment {
         }
 
     }
-
+    //The function returns  from the Users table the number of registered users in the past n days
     public static int getNumberOfRegistredUsers(int n){
-        List<Users>users=null;
+        List<Long>users=null;
         //select users with registration date greater that sysdate-n days
         try {
             Session session=HibernateUtil.currentSession();
@@ -327,15 +331,19 @@ public class Assignment {
         finally {
             HibernateUtil.closeSession();
         }
-        if (users==null || users.size()==0){
-            return 0;
-        }
-        else {
-            System.out.println(users.size());
-            return users.size();
-        }
-    }
 
+
+            if(users.size()>0){
+               int count = users.get(0).intValue();
+                System.out.println(count);
+                return count;
+
+            }
+        System.out.println("0");
+            return 0;
+
+    }
+    //the function returns a list of Users object that exist in the USERS table
     public static List<Users> getUsers () {
         List<Users> users = null;
         //get all users from users db
@@ -352,7 +360,7 @@ public class Assignment {
 
         return users;
     }
-
+    //the function returns Users object from USERS table with  the userid parameter
     public static Users getUser (String userid){
         List<Users> users = null;
         //get all users from users db
