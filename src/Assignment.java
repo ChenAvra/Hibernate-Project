@@ -19,9 +19,7 @@ public class Assignment {
         try{
             Session session= HibernateUtil.currentSession();
             String statement="select username from Users user WHERE user.username='"+username+"'";
-            System.out.println("statement:"+statement);
             Query query=session.createQuery(statement);
-            System.out.println("query:"+query.list().size());
             numOfUsers=query.list().size();
         }catch (Exception e){
             e.printStackTrace();
@@ -91,8 +89,8 @@ public class Assignment {
         List<Mediaitems> answer =  null;
         try{
             Session session=HibernateUtil.currentSession();
-            String statement = "select * from MediaitemsEntity titles where ROWNUM<="+top_n+" order by mid desc";
-            Query query=session.createQuery(statement);
+            String statement = "select items from Mediaitems items order by mid desc";
+            Query query=session.createQuery(statement).setMaxResults(top_n);
             answer=query.list();
 
         }catch (Exception e){
@@ -119,7 +117,7 @@ public class Assignment {
             HibernateUtil.closeSession();
         }
         if(answer.size()>0){
-            String answerToString=" "+answer.get(0).getUserid();
+            String answerToString=""+answer.get(0).getUserid();
             return answerToString;
         }
         else{
@@ -131,7 +129,7 @@ public class Assignment {
         List<Administrators> answer =  null;
         try{
             Session session=HibernateUtil.currentSession();
-            String statement = "select * from AdministratorsEntity allAdmins where allAdmins.username='"+username+"' and allAdmins.password='"+password+"'";
+            String statement = "from Administrators allAdmins where allAdmins.username='"+username+"' and allAdmins.password='"+password+"'";
             Query query=session.createQuery(statement);
             answer=query.list();
 
@@ -142,7 +140,7 @@ public class Assignment {
             HibernateUtil.closeSession();
         }
         if(answer.size()>0){
-            String answerToString=" "+answer.get(0).getAdminid();
+            String answerToString=""+answer.get(0).getAdminid();
             return answerToString;
         }
         else{

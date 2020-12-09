@@ -6,12 +6,12 @@
     <session-factory>
         <property name="connection.url">jdbc:oracle:thin:@ora1.ise.bgu.ac.il:1521:ORACLE</property>
         <property name="connection.driver_class">oracle.jdbc.OracleDriver</property>
-        <property name="connection.username">chenavra</property>
+        <property name="connection.username">irisdrei</property>
         <property name="connection.password">abcd</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
         <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
 
-
+        <mapping resource="Users.hbm.xml"/>
         <mapping class="Entities.Administrators"/>
         <mapping class="Entities.History"/>
         <mapping class="Entities.Loginlog"/>
