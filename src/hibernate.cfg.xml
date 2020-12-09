@@ -18,6 +18,9 @@
         <mapping class="Entities.Mediaitems"/>
         <mapping class="Entities.Similarity"/>
         <mapping class="Entities.Users"/>
+<!--            <id name= "userid"  column="userid">-->
+<!--                <generator class="native"/>-->
+<!--            </id>-->
 
         <!-- <property name="connection.username"/> -->
         <!-- <property name="connection.password"/> -->
