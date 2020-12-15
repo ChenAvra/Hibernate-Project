@@ -87,11 +87,16 @@ public class Assignment {
     }
     public static List<Mediaitems> getTopNItems (int top_n){
         List<Mediaitems> answer =  null;
+        List<Mediaitems> decItems=null;
         try{
             Session session=HibernateUtil.currentSession();
-            String statement = "select items from Mediaitems items order by mid desc";
+            String statement = "select items from Mediaitems items order by mid asc";
             Query query=session.createQuery(statement).setMaxResults(top_n);
             answer=query.list();
+            System.out.println(answer);
+            decItems = new ArrayList<Mediaitems>((answer));
+            Collections.reverse(decItems);
+
 
         }catch (Exception e){
             e.printStackTrace();
@@ -99,7 +104,7 @@ public class Assignment {
         finally {
             HibernateUtil.closeSession();
         }
-        return answer;
+        return decItems ;
     }
 
     public static String validateUser (String username, String password){
@@ -150,6 +155,7 @@ public class Assignment {
 
     public static void main(String[] args) {
         Assignment a=new Assignment();
+          List<Mediaitems>list=a.getTopNItems(10);
 //        a.insertUser("iris","1234","chenavra","avra","19","November","1994");
 //        a.insertUser("hezi","1234","chenavra","avra","19","November","1994");
 //        a.insertUser("sharom","1234","chenavra","avra","19","November","1994");
