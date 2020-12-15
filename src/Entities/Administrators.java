@@ -4,10 +4,11 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.io.Serializable;
 import java.util.Objects;
 
 
-public class Administrators {
+public class Administrators implements Serializable {
     private long adminid;
     private String username;
     private String password;

@@ -4,10 +4,11 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.io.Serializable;
 import java.util.Objects;
 
 
-public class Mediaitems {
+public class Mediaitems implements Serializable {
     private long mid;
     private String title;
     private Long prodYear;

@@ -4,9 +4,11 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="Entities.History" table="HISTORY" schema="IRISDREI">
-        <id name="viewtime">
-            <column name="VIEWTIME" sql-type="timestamp(6)"/>
-        </id>
+    <class name="Entities.History" table="HISTORY">
+       <composite-id mapped="false">
+           <key-property name="userid" column="USERID"/>
+           <key-property name="mid" column="MID"/>
+           <key-property name="viewtime" column="VIEWTIME"/>
+       </composite-id>
     </class>
 </hibernate-mapping>

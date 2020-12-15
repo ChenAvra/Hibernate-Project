@@ -4,15 +4,12 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="Entities.Administrators" table="ADMINISTRATORS" schema="IRISDREI">
-        <id name="adminid">
-            <column name="ADMINID" sql-type="number(11)" precision="11"/>
+    <class name="Entities.Administrators" table="ADMINISTRATORS" >
+        <id name="adminid" column="ADMINID" type="long">
+            <generator class="increment"></generator>
         </id>
-        <property name="username">
-            <column name="USERNAME" sql-type="varchar2(200)" length="200" not-null="true"/>
-        </property>
-        <property name="password">
-            <column name="PASSWORD" sql-type="varchar2(200)" length="200" not-null="true"/>
-        </property>
+        <property name="username" column="USERNAME" type="java.lang.String"/>
+
+        <property name="password" column="PASSWORD" type="java.lang.String"/>
     </class>
 </hibernate-mapping>

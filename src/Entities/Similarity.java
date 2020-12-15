@@ -1,10 +1,11 @@
 package Entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 
-public class Similarity {
+public class Similarity implements Serializable {
     private long mid1;
     private long mid2;
     private Double similarity;

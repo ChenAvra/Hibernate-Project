@@ -4,18 +4,10 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="Entities.Mediaitems" table="MEDIAITEMS" schema="IRISDREI">
-        <id name="mid">
-            <column name="MID" sql-type="number(9)" precision="9"/>
-        </id>
-        <property name="title">
-            <column name="TITLE" sql-type="varchar2(200)" length="200" not-null="true"/>
-        </property>
-        <property name="prodYear">
-            <column name="PROD_YEAR" sql-type="number(4)" precision="4" not-null="true"/>
-        </property>
-        <property name="titleLength">
-            <column name="TITLE_LENGTH" sql-type="number(4)" precision="4" not-null="true"/>
-        </property>
+    <class name="Entities.Mediaitems" table="MEDIAITEMS">
+        <id name="mid" column="MID"/>
+        <property name="title" column="TITLE" type="java.lang.String"/>
+        <property name="prodYear" column="PROD_YEAR" type="java.lang.Long"/>
+        <property name="titleLength" column="TITLE_LENGTH" type="java.lang.Short"/>
     </class>
 </hibernate-mapping>

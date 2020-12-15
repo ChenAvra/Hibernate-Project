@@ -1,11 +1,12 @@
 package Entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Objects;
 
 
-public class Users {
+public class Users implements Serializable {
     private long userid;
     private String username;
     private String password;

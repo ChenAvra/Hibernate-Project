@@ -4,27 +4,22 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="Entities.Users" table="USERS" schema="IRISDREI">
-        <id name="userid">
-            <column name="USERID" sql-type="number(11)" precision="11"/>
+    <class name="Entities.Users" table="USERS">
+        <meta attribute = "class-description">
+            This class contains the users detail.
+        </meta>
+
+        <id name="userid" type ="long" column ="USERID">
+            <generator class="increment"/>
         </id>
-        <property name="username">
-            <column name="USERNAME" sql-type="varchar2(200)" length="200" not-null="true"/>
-        </property>
-        <property name="password">
-            <column name="PASSWORD" sql-type="varchar2(200)" length="200" not-null="true"/>
-        </property>
-        <property name="firstName">
-            <column name="FIRST_NAME" sql-type="varchar2(200)" length="200" not-null="true"/>
-        </property>
-        <property name="lastName">
-            <column name="LAST_NAME" sql-type="varchar2(200)" length="200" not-null="true"/>
-        </property>
-        <property name="dateOfBirth">
-            <column name="DATE_OF_BIRTH" sql-type="timestamp(6)" not-null="true"/>
-        </property>
-        <property name="registrationDate">
-            <column name="REGISTRATION_DATE" sql-type="timestamp(6)" not-null="true"/>
-        </property>
+
+        <property name="username" column = "USERNAME" type = "string"/>
+
+        <property name="password" column="PASSWORD" type="string"/>
+        <property name="firstName" column="FIRST_NAME" type="string"/>
+        <property name="lastName" column="LAST_NAME" type="string"/>
+
+        <property name="dateOfBirth" column="DATE_OF_BIRTH" type = "timestamp"/>
+        <property name="registrationDate" column="REGISTRATION_DATE" type = "timestamp"/>
     </class>
 </hibernate-mapping>

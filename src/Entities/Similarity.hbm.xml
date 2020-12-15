@@ -4,17 +4,11 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="Entities.Similarity" table="SIMILARITY" schema="IRISDREI">
-        <composite-id mapped="true" class="Entities.SimilarityPK">
-            <key-property name="mid1">
-                <column name="MID1" sql-type="number(9)" precision="9"/>
-            </key-property>
-            <key-property name="mid2">
-                <column name="MID2" sql-type="number(9)" precision="9"/>
-            </key-property>
+    <class name="Entities.Similarity" table="SIMILARITY">
+        <composite-id>
+            <key-property name="mid1" column="MID1"/>
+            <key-property name="mid2" column="MID2"/>
         </composite-id>
-        <property name="similarity">
-            <column name="SIMILARITY" sql-type="float(*)" precision="2147483646" not-null="true"/>
-        </property>
+        <property name="similarity" column="SIMILARITY"/>
     </class>
 </hibernate-mapping>
