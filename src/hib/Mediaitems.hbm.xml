@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="Entities.Mediaitems" table="MEDIAITEMS">
+    <class name="hib.Mediaitems" table="MEDIAITEMS">
         <id name="mid" column="MID"/>
         <property name="title" column="TITLE" type="java.lang.String"/>
         <property name="prodYear" column="PROD_YEAR" type="java.lang.Long"/>

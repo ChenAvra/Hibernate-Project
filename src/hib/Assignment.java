@@ -1,19 +1,18 @@
-import Entities.*;
+package hib;
+
+import hib.*;
 import org.hibernate.*;
 import org.hibernate.query.Query;
-import org.hibernate.cfg.Configuration;
-
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.metamodel.EntityType;
-import javax.swing.*;
 
 import java.sql.Timestamp;
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class Assignment {
+    public static void main(String[] args) {
+
+    }
     public static boolean isExistUsername (String username){
         int numOfUsers=0;
         try{
@@ -58,8 +57,7 @@ public class Assignment {
             }
             else{
                 Session session = HibernateUtil.currentSession();
-//                usersEntity.setUserid(usersEntity.getUserid());
-//                System.out.println(usersEntity.getUserid());
+
                 usersEntity.setUsername(username);
                 usersEntity.setPassword(password);
                 usersEntity.setFirstName(first_name);
@@ -89,11 +87,10 @@ public class Assignment {
         List<Mediaitems> answer =  null;
         List<Mediaitems> decItems=null;
         try{
-            Session session=HibernateUtil.currentSession();
+            Session session= HibernateUtil.currentSession();
             String statement = "select items from Mediaitems items order by mid asc";
             Query query=session.createQuery(statement).setMaxResults(top_n);
             answer=query.list();
-            System.out.println(answer);
             decItems = new ArrayList<Mediaitems>((answer));
             Collections.reverse(decItems);
 
@@ -107,10 +104,11 @@ public class Assignment {
         return decItems ;
     }
 
+
     public static String validateUser (String username, String password){
         List<Users> answer =  null;
         try{
-            Session session=HibernateUtil.currentSession();
+            Session session= HibernateUtil.currentSession();
             String statement = "from Users allUsers where allUsers.username='"+username+"' and allUsers.password='"+password+"'";
             Query query=session.createQuery(statement);
             answer=query.list();
@@ -133,7 +131,7 @@ public class Assignment {
     public static String validateAdministrator (String username, String password){
         List<Administrators> answer =  null;
         try{
-            Session session=HibernateUtil.currentSession();
+            Session session= HibernateUtil.currentSession();
             String statement = "from Administrators allAdmins where allAdmins.username='"+username+"' and allAdmins.password='"+password+"'";
             Query query=session.createQuery(statement);
             answer=query.list();
@@ -153,31 +151,14 @@ public class Assignment {
         }
     }
 
-    public static void main(String[] args) {
-        Assignment a=new Assignment();
-          List<Mediaitems>list=a.getTopNItems(10);
-//        a.insertUser("iris","1234","chenavra","avra","19","November","1994");
-//        a.insertUser("hezi","1234","chenavra","avra","19","November","1994");
-//        a.insertUser("sharom","1234","chenavra","avra","19","November","1994");
 
-//        a.insertToHistory("5","1");
-//        a.insertToHistory("5","2");
-//        a.insertToHistory("5","3");
-//        a.getHistory("5") ;
-//        a.insertToLog("5");
-//        a.insertToLog("4");
-
-//        a.getNumberOfRegistredUsers(2);
-//        System.out.println(a.getUsers());
-//        System.out.println(getUser("5"));
-    }
     //the function insert a new row to the History table with userid and mid
     public static void insertToHistory (String userid, String mid){
         History history=new History();
         List<Users>users=null;
         //check if user is exist
         try {
-            Session session=HibernateUtil.currentSession();
+            Session session= HibernateUtil.currentSession();
             String query="select user from Users user where user.userid='"+userid+"'";
 
             Query query2=session.createQuery(query);
@@ -199,7 +180,7 @@ public class Assignment {
         List<Mediaitems>mids=null;
 
         try {
-            Session session=HibernateUtil.currentSession();
+            Session session= HibernateUtil.currentSession();
             String query="select mid from Mediaitems MD where MD.mid='"+mid+"'";
             mids=session.createQuery(query).list();
         }
@@ -218,7 +199,7 @@ public class Assignment {
 
         try {
 
-            Session session=HibernateUtil.currentSession();
+            Session session= HibernateUtil.currentSession();
             Transaction transaction = session.beginTransaction();
             history.setUserid(Long.parseLong(userid));
             history.setMid(Long.parseLong(mid));
@@ -248,7 +229,7 @@ public class Assignment {
         Map<String,Date> usesDetailes=new HashMap<>();
         try
         {
-            session=HibernateUtil.currentSession();
+            session= HibernateUtil.currentSession();
             String hql="select h.viewtime , mi.title from History h, Mediaitems mi where h.userid = '"+userid+"'and mi.mid = h.mid ORDER BY h.viewtime" ;
             usesDetailesList=session.createQuery(hql).list();
 
@@ -268,7 +249,6 @@ public class Assignment {
         {
             HibernateUtil.closeSession();
         }
-        System.out.println(usesDetailes.toString());
         return usesDetailes;
 
 
@@ -279,7 +259,7 @@ public class Assignment {
         List<Users>users=null;
         //check if user is exist
         try {
-            Session session=HibernateUtil.currentSession();
+            Session session= HibernateUtil.currentSession();
             String query="select users from Users users where users.userid='"+userid+"'";
             users=session.createQuery(query).list();
         }
@@ -299,7 +279,7 @@ public class Assignment {
 
         try {
 
-            Session session=HibernateUtil.currentSession();
+            Session session= HibernateUtil.currentSession();
             Transaction transaction = session.beginTransaction();
             loginlog.setUserid(Long.parseLong(userid));
             Timestamp timestamp=new Timestamp(System.currentTimeMillis());
@@ -325,7 +305,7 @@ public class Assignment {
         List<Long>users=null;
         //select users with registration date greater that sysdate-n days
         try {
-            Session session=HibernateUtil.currentSession();
+            Session session= HibernateUtil.currentSession();
             String query= "select count(users.username) from Users users where users.registrationDate > sysdate()-"+n;
             users=session.createQuery(query).list();
 //            users=session.createQuery(query).list();
@@ -341,11 +321,9 @@ public class Assignment {
 
             if(users.size()>0){
                int count = users.get(0).intValue();
-                System.out.println(count);
                 return count;
 
             }
-        System.out.println("0");
             return 0;
 
     }

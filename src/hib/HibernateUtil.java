@@ -1,3 +1,5 @@
+package hib;
+
 import org.hibernate.*;
 import org.hibernate.cfg.*;
 import org.apache.commons.logging.Log;

@@ -4,11 +4,10 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="Entities.Similarity" table="SIMILARITY">
-        <composite-id>
-            <key-property name="mid1" column="MID1"/>
-            <key-property name="mid2" column="MID2"/>
+    <class name="hib.Loginlog" table="LOGINLOG">
+        <composite-id >
+            <key-property name="userid" column="USERID"/>
+            <key-property name="logintime" column="LOGINTIME"/>
         </composite-id>
-        <property name="similarity" column="SIMILARITY"/>
     </class>
 </hibernate-mapping>

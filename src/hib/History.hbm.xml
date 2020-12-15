@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="Entities.History" table="HISTORY">
+    <class name="hib.History" table="HISTORY">
        <composite-id mapped="false">
            <key-property name="userid" column="USERID"/>
            <key-property name="mid" column="MID"/>

@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="Entities.Administrators" table="ADMINISTRATORS" >
+    <class name="hib.Administrators" table="ADMINISTRATORS" >
         <id name="adminid" column="ADMINID" type="long">
             <generator class="increment"></generator>
         </id>

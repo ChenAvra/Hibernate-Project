@@ -1,18 +1,14 @@
-package Entities;
+package hib;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.IdClass;
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Objects;
 
-
-public class History implements Serializable {
+public class HistoryId implements Serializable {
     private long userid;
     private long mid;
     private Timestamp viewtime;
+
 
     public long getUserid() {
         return userid;
@@ -21,6 +17,7 @@ public class History implements Serializable {
     public void setUserid(long userid) {
         this.userid = userid;
     }
+
 
     public long getMid() {
         return mid;
@@ -43,10 +40,10 @@ public class History implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        History history = (History) o;
-        return userid == history.userid &&
-                mid == history.mid &&
-                Objects.equals(viewtime, history.viewtime);
+        HistoryId historyId = (HistoryId) o;
+        return userid == historyId.userid &&
+                mid == historyId.mid &&
+                Objects.equals(viewtime, historyId.viewtime);
     }
 
     @Override

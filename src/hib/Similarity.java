@@ -1,13 +1,13 @@
-package Entities;
+package hib;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class SimilarityPK implements Serializable {
+
+public class Similarity implements Serializable {
     private long mid1;
     private long mid2;
+    private Double similarity;
 
 
     public long getMid1() {
@@ -27,17 +27,27 @@ public class SimilarityPK implements Serializable {
         this.mid2 = mid2;
     }
 
+
+    public Double getSimilarity() {
+        return similarity;
+    }
+
+    public void setSimilarity(Double similarity) {
+        this.similarity = similarity;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        SimilarityPK that = (SimilarityPK) o;
+        Similarity that = (Similarity) o;
         return mid1 == that.mid1 &&
-                mid2 == that.mid2;
+                mid2 == that.mid2 &&
+                Objects.equals(similarity, that.similarity);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(mid1, mid2);
+        return Objects.hash(mid1, mid2, similarity);
     }
 }

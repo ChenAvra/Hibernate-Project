@@ -1,12 +1,11 @@
-package Entities;
+package hib;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Objects;
 
-public class LoginlogPK implements Serializable {
+
+public class Loginlog implements Serializable {
     private long userid;
     private Timestamp logintime;
 
@@ -32,9 +31,9 @@ public class LoginlogPK implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        LoginlogPK that = (LoginlogPK) o;
-        return userid == that.userid &&
-                Objects.equals(logintime, that.logintime);
+        Loginlog loginlog = (Loginlog) o;
+        return userid == loginlog.userid &&
+                Objects.equals(logintime, loginlog.logintime);
     }
 
     @Override
