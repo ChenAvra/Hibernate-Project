@@ -151,7 +151,7 @@ public class Assignment {
     public static void main(String[] args) {
         Assignment a=new Assignment();
 //        a.insertUser("iris","1234","chenavra","avra","19","November","1994");
-//        a.insertUser("sh","1234","chenavra","avra","19","November","1994");
+//        a.insertUser("hezi","1234","chenavra","avra","19","November","1994");
 //        a.insertUser("sharom","1234","chenavra","avra","19","November","1994");
 
 //        a.insertToHistory("5","1");
@@ -162,8 +162,8 @@ public class Assignment {
 //        a.insertToLog("4");
 
 //        a.getNumberOfRegistredUsers(2);
-        System.out.println(a.getUsers());
-        System.out.println(getUser("5"));
+//        System.out.println(a.getUsers());
+//        System.out.println(getUser("5"));
     }
     //the function insert a new row to the History table with userid and mid
     public static void insertToHistory (String userid, String mid){
