@@ -6,19 +6,37 @@
     <session-factory>
         <property name="connection.url">jdbc:oracle:thin:@ora1.ise.bgu.ac.il:1521:ORACLE</property>
         <property name="connection.driver_class">oracle.jdbc.OracleDriver</property>
-        <property name="connection.username">chenavra</property>
+        <property name="connection.username">irisdrei</property>
         <property name="connection.password">abcd</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
         <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
 
         <mapping resource="Users.hbm.xml"/>
+        <mapping resource="Entities/Administrators.hbm.xml"/>
         <mapping class="Entities.Administrators"/>
+        <mapping resource="Entities/History.hbm.xml"/>
         <mapping class="Entities.History"/>
+        <mapping resource="Entities/Loginlog.hbm.xml"/>
         <mapping class="Entities.Loginlog"/>
+        <mapping resource="Entities/Mediaitems.hbm.xml"/>
         <mapping class="Entities.Mediaitems"/>
+        <mapping resource="Entities/Similarity.hbm.xml"/>
         <mapping class="Entities.Similarity"/>
+        <mapping resource="Entities/Users.hbm.xml"/>
         <mapping class="Entities.Users"/>
-<!--            <id name= "userid"  column="userid">-->
+
+
+
+
+
+
+
+
+
+
+
+
+        <!--            <id name= "userid"  column="userid">-->
 <!--                <generator class="native"/>-->
 <!--            </id>-->
 

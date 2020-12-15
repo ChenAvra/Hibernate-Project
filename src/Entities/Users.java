@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Objects;
 
-@Entity
+
 public class Users {
     private long userid;
     private String username;
@@ -14,8 +14,7 @@ public class Users {
     private Timestamp dateOfBirth;
     private Timestamp registrationDate;
 
-    @Id
-    @Column(name = "USERID", nullable = false, precision = 0)
+
 //    @GeneratedValue(strategy=GenerationType.AUTO)
     public long getUserid() {
         return userid;
@@ -25,8 +24,7 @@ public class Users {
         this.userid = userid;
     }
 
-    @Basic
-    @Column(name = "USERNAME", nullable = true, length = 200)
+
     public String getUsername() {
         return username;
     }
@@ -35,8 +33,7 @@ public class Users {
         this.username = username;
     }
 
-    @Basic
-    @Column(name = "PASSWORD", nullable = true, length = 200)
+
     public String getPassword() {
         return password;
     }
@@ -45,8 +42,7 @@ public class Users {
         this.password = password;
     }
 
-    @Basic
-    @Column(name = "FIRST_NAME", nullable = true, length = 200)
+
     public String getFirstName() {
         return firstName;
     }
@@ -55,8 +51,7 @@ public class Users {
         this.firstName = firstName;
     }
 
-    @Basic
-    @Column(name = "LAST_NAME", nullable = true, length = 200)
+
     public String getLastName() {
         return lastName;
     }
@@ -65,8 +60,7 @@ public class Users {
         this.lastName = lastName;
     }
 
-    @Basic
-    @Column(name = "DATE_OF_BIRTH", nullable = true)
+
     public Timestamp getDateOfBirth() {
         return dateOfBirth;
     }
@@ -75,8 +69,7 @@ public class Users {
         this.dateOfBirth = dateOfBirth;
     }
 
-    @Basic
-    @Column(name = "REGISTRATION_DATE", nullable = true)
+
     public Timestamp getRegistrationDate() {
         return registrationDate;
     }

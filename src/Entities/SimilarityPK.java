@@ -9,8 +9,7 @@ public class SimilarityPK implements Serializable {
     private long mid1;
     private long mid2;
 
-    @Column(name = "MID1", nullable = false, precision = 0)
-    @Id
+
     public long getMid1() {
         return mid1;
     }
@@ -19,8 +18,7 @@ public class SimilarityPK implements Serializable {
         this.mid1 = mid1;
     }
 
-    @Column(name = "MID2", nullable = false, precision = 0)
-    @Id
+
     public long getMid2() {
         return mid2;
     }

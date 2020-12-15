@@ -7,15 +7,12 @@ import javax.persistence.IdClass;
 import java.sql.Timestamp;
 import java.util.Objects;
 
-@Entity
-@IdClass(HistoryPK.class)
+
 public class History {
     private long userid;
     private long mid;
     private Timestamp viewtime;
 
-    @Id
-    @Column(name = "USERID", nullable = false, precision = 0)
     public long getUserid() {
         return userid;
     }
@@ -24,8 +21,6 @@ public class History {
         this.userid = userid;
     }
 
-    @Id
-    @Column(name = "MID", nullable = false, precision = 0)
     public long getMid() {
         return mid;
     }
@@ -34,8 +29,7 @@ public class History {
         this.mid = mid;
     }
 
-    @Id
-    @Column(name = "VIEWTIME", nullable = false)
+
     public Timestamp getViewtime() {
         return viewtime;
     }

@@ -10,8 +10,7 @@ public class LoginlogPK implements Serializable {
     private long userid;
     private Timestamp logintime;
 
-    @Column(name = "USERID", nullable = false, precision = 0)
-    @Id
+
     public long getUserid() {
         return userid;
     }
@@ -20,8 +19,7 @@ public class LoginlogPK implements Serializable {
         this.userid = userid;
     }
 
-    @Column(name = "LOGINTIME", nullable = false)
-    @Id
+
     public Timestamp getLogintime() {
         return logintime;
     }

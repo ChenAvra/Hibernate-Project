@@ -6,15 +6,14 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.Objects;
 
-@Entity
+
 public class Mediaitems {
     private long mid;
     private String title;
     private Long prodYear;
     private Short titleLength;
 
-    @Id
-    @Column(name = "MID", nullable = false, precision = 0)
+
     public long getMid() {
         return mid;
     }
@@ -23,8 +22,7 @@ public class Mediaitems {
         this.mid = mid;
     }
 
-    @Basic
-    @Column(name = "TITLE", nullable = true, length = 200)
+
     public String getTitle() {
         return title;
     }
@@ -33,8 +31,7 @@ public class Mediaitems {
         this.title = title;
     }
 
-    @Basic
-    @Column(name = "PROD_YEAR", nullable = true, precision = 0)
+
     public Long getProdYear() {
         return prodYear;
     }
@@ -43,8 +40,7 @@ public class Mediaitems {
         this.prodYear = prodYear;
     }
 
-    @Basic
-    @Column(name = "TITLE_LENGTH", nullable = true, precision = 0)
+
     public Short getTitleLength() {
         return titleLength;
     }

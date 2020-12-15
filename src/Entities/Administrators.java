@@ -6,14 +6,13 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.Objects;
 
-@Entity
+
 public class Administrators {
     private long adminid;
     private String username;
     private String password;
 
-    @Id
-    @Column(name = "ADMINID", nullable = false, precision = 0)
+
     public long getAdminid() {
         return adminid;
     }
@@ -22,8 +21,7 @@ public class Administrators {
         this.adminid = adminid;
     }
 
-    @Basic
-    @Column(name = "USERNAME", nullable = true, length = 200)
+
     public String getUsername() {
         return username;
     }
@@ -32,8 +30,7 @@ public class Administrators {
         this.username = username;
     }
 
-    @Basic
-    @Column(name = "PASSWORD", nullable = true, length = 200)
+ 
     public String getPassword() {
         return password;
     }

@@ -7,14 +7,12 @@ import javax.persistence.IdClass;
 import java.sql.Timestamp;
 import java.util.Objects;
 
-@Entity
-@IdClass(LoginlogPK.class)
+
 public class Loginlog {
     private long userid;
     private Timestamp logintime;
 
-    @Id
-    @Column(name = "USERID", nullable = false, precision = 0)
+
     public long getUserid() {
         return userid;
     }
@@ -23,8 +21,7 @@ public class Loginlog {
         this.userid = userid;
     }
 
-    @Id
-    @Column(name = "LOGINTIME", nullable = false)
+
     public Timestamp getLogintime() {
         return logintime;
     }

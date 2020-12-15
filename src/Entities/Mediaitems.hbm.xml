@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="Entities.Mediaitems" table="MEDIAITEMS" schema="IRISDREI">
+        <id name="mid">
+            <column name="MID" sql-type="number(9)" precision="9"/>
+        </id>
+        <property name="title">
+            <column name="TITLE" sql-type="varchar2(200)" length="200" not-null="true"/>
+        </property>
+        <property name="prodYear">
+            <column name="PROD_YEAR" sql-type="number(4)" precision="4" not-null="true"/>
+        </property>
+        <property name="titleLength">
+            <column name="TITLE_LENGTH" sql-type="number(4)" precision="4" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>
