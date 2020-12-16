@@ -124,7 +124,7 @@ public class Assignment {
             return answerToString;
         }
         else{
-            return "NOT FOUND";
+            return "Not Found";
         }
     }
 
@@ -147,7 +147,7 @@ public class Assignment {
             return answerToString;
         }
         else{
-            return "NOT FOUND";
+            return "Not Found";
         }
     }
 
